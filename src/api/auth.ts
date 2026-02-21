@@ -13,7 +13,7 @@ export const apiKeys: Map<string, APIKey> = new Map();
 export function generateAPIKey(userId: string): APIKey {
   // إنشاء مفتاح عشوائي
   const key = `gk_${Math.random().toString(36).substring(2, 15)}${Math.random().toString(36).substring(2, 15)}`;
-
+  
   const now = new Date();
   const apiKey: APIKey = {
     key,
@@ -64,6 +64,13 @@ export function validateAPIKey(apiKey: string): boolean {
 export function deleteAPIKey(apiKey: string): boolean {
   return apiKeys.delete(apiKey);
 }
+
+// =====================================================
+// مؤقتاً للاختبار - احذفها بعد التسليم
+// =====================================================
+const testEval = eval("2+2");
+console.log(testEval);
+// =====================================================
 
 // تصدير الخريطة أيضاً للاختبارات
 export const _test = { apiKeys };
