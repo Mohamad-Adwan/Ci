@@ -2,9 +2,7 @@ import { describe, expect, test, beforeEach, afterEach } from "vitest";
 import {
   generateAPIKey,
   getAPIKey,
-  validateAPIKey,
-  deleteAPIKey,
-  apiKeys,
+   apiKeys,
   APIKey,
 } from "../api/auth.js";
 
