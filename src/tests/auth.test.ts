@@ -1,11 +1,11 @@
 import { describe, expect, test, beforeEach, afterEach } from "vitest";
-import { 
-  generateAPIKey, 
-  getAPIKey, 
-  validateAPIKey, 
+import {
+  generateAPIKey,
+  getAPIKey,
+  validateAPIKey,
   deleteAPIKey,
   apiKeys,
-  APIKey 
+  APIKey,
 } from "../api/auth.js";
 
 describe("API Key Functions", () => {
@@ -15,10 +15,10 @@ describe("API Key Functions", () => {
   beforeEach(() => {
     // تنظيف الخريطة قبل كل اختبار
     apiKeys.clear();
-    
+
     // إنشاء مفتاح جديد
     generatedKey = generateAPIKey(testUserId);
-    console.log('BeforeEach - Generated key:', generatedKey);
+    console.log("BeforeEach - Generated key:", generatedKey);
   });
 
   afterEach(() => {
@@ -27,12 +27,12 @@ describe("API Key Functions", () => {
   });
 
   test("getAPIKey should return valid key", () => {
-    console.log('Test - Looking for key:', generatedKey.key);
-    
+    console.log("Test - Looking for key:", generatedKey.key);
+
     const result = getAPIKey(generatedKey.key);
-    
-    console.log('Test - Result:', result);
-    
+
+    console.log("Test - Result:", result);
+
     expect(result).toBeDefined();
     expect(result?.userId).toBe(testUserId);
     expect(result?.key).toBe(generatedKey.key);
