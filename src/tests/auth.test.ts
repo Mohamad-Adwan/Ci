@@ -1,10 +1,5 @@
 import { describe, expect, test, beforeEach, afterEach } from "vitest";
-import {
-  generateAPIKey,
-  getAPIKey,
-   apiKeys,
-  APIKey,
-} from "../api/auth.js";
+import { generateAPIKey, getAPIKey, apiKeys, APIKey } from "../api/auth.js";
 
 describe("API Key Functions", () => {
   const testUserId = "test-user-123";
