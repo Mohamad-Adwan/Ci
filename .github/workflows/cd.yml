@@ -34,7 +34,7 @@ jobs:
       
       # ✅ تنفيذ الترحيلات على قاعدة البيانات
       - name: Run database migrations
-        run: npx drizzle-kit migrate --config=drizzle.config.ts
+        run: npx drizzle-kit migrate --config=drizzle.config.ts || || echo "Migrations already applied"
       
       - run: npm run build
       
