@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-     DATABASE_URL: ${{ secrets.DATABASE_URL }}
-     TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +20,13 @@ jobs:
           node-version: '22'
       
       - run: npm ci
+      
+      # ✅ التحقق من التوكن قبل الاستخدام
+      - name: Debug Turso token
+        run: |
+          echo "Token length: ${#TURSO_AUTH_TOKEN}"
+          echo "Token first 10 chars: ${TURSO_AUTH_TOKEN:0:10}..."
+          echo "Token last 10 chars: ${TURSO_AUTH_TOKEN: -10}"
       
       # ✅ توليد ملفات الترحيلات من الـ schema
       - name: Generate migrations
