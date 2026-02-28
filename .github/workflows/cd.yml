@@ -22,7 +22,7 @@ jobs:
       
       # ✅ تشغيل الترحيلات (migrations) قبل بناء الصورة
       - name: Run database migrations
-        run: npm run db:migrate
+        run: npx drizzle-kit migrate
       
       - run: npm run build
       
